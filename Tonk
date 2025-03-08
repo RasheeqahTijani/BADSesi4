@@ -1,0 +1,66 @@
+package Main;
+
+public abstract class Tonk {
+	private String TonkID;
+	private String TonkName;
+	private boolean haskettle;
+	private boolean hasAutoloader;
+	private boolean hasThermal;
+	private int price;
+	
+	//method itu abstract
+	
+	
+	//generate constructor alt+shift+s+o
+	public Tonk(String tonkID, String tonkName, boolean haskettle, boolean hasAutoloader, boolean hasThermal,
+			int price) {
+		super();
+		this.TonkID = tonkID;
+		this.TonkName = tonkName;
+		this.haskettle = haskettle;
+		this.hasAutoloader = hasAutoloader;
+		this.hasThermal = hasThermal;
+		this.price = price;
+	}
+	//generate getter setter alt+shift+s+r
+	public String getTonkID() {
+		return TonkID;
+	}
+	public void setTonkID(String tonkID) {
+		TonkID = tonkID;
+	}
+	public String getTonkName() {
+		return TonkName;
+	}
+	public void setTonkName(String tonkName) {
+		TonkName = tonkName;
+	}
+	public boolean isHaskettle() {
+		return haskettle;
+	}
+	public void setHaskettle(boolean haskettle) {
+		this.haskettle = haskettle;
+	}
+	public boolean isHasAutoloader() {
+		return hasAutoloader;
+	}
+	public void setHasAutoloader(boolean hasAutoloader) {
+		this.hasAutoloader = hasAutoloader;
+	}
+	public boolean isHasThermal() {
+		return hasThermal;
+	}
+	public void setHasThermal(boolean hasThermal) {
+		this.hasThermal = hasThermal;
+	}
+	public int isPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	
+	public abstract String generateID();
+	public abstract int calculatePrice();
+
+}
