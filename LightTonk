@@ -1,0 +1,61 @@
+package Main;
+
+import java.util.Random;
+
+public class LightTonk extends Tonk {
+	private int speed;
+	
+
+	//kalau filenya masih merah disave dulu	
+	public LightTonk(String tonkID, String tonkName, boolean haskettle, boolean hasAutoloader, boolean hasThermal,
+			int price, int speed) {
+		super(tonkID, tonkName, haskettle, hasAutoloader, hasThermal, price);
+		// TODO Auto-generated constructor stub
+		
+		this.speed = speed;
+	}
+	
+	
+	public int getSpeed() {
+		return speed;
+	}
+	
+	public void setSpeed(int speed) {
+		this.speed = speed;
+	}
+
+	@Override
+	public String generateID() {
+		// TODO Auto-generated method stub
+		Random rand = new Random();
+		int generated =rand.nextInt(1000);//yang di dalam itu batasnya
+		
+		return String.format("TL%03d", generated);//
+		//biar selalu 3 digit
+		
+		//generated -> 7
+		//TL7
+		//TL007
+	}
+
+	@Override
+	public int calculatePrice() {
+		int classPrice = 100000;//baseprice
+		int multiplier = 0;
+		if(this.isHaskettle()) {
+			classPrice +=100;
+			multiplier++;
+		}
+		if(this.isHasAutoloader()) {
+			classPrice +=500000;
+			multiplier++;
+		}
+		if(this.isHasThermal()) {
+			classPrice +=10000;
+			multiplier++;
+		}
+		classPrice += 100* multiplier;
+		return classPrice;
+	}
+
+}
